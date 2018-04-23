@@ -29,7 +29,7 @@ export class DogService {
     return this.http.put(`/api/dog/${dog._id}`, dog, { responseType: 'text' });
   }
 
-  deleteCat(dog: Dog): Observable<string> {
+  deleteDog(dog: Dog): Observable<string> {
     return this.http.delete(`/api/dog/${dog._id}`, { responseType: 'text' });
   }
 
