@@ -53,6 +53,7 @@ export function tokenGetter() {
     AuthGuardAdmin,
     CatService,
     UserService,
+    DogService,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent],

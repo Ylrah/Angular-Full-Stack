@@ -16,6 +16,8 @@ import { DogsComponent } from './dogs/dogs.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
+  { path: 'dogs', component: DogsComponent },
+
   { path: 'cats', component: CatsComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
@@ -24,7 +26,6 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
-  { path: 'dogs', component: DogsComponent },
 
 ];
 

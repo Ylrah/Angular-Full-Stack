@@ -12,24 +12,23 @@ import { Dog } from '../shared/models/dog.model';
 })
 export class DogsComponent implements OnInit {
 
-  dogService: any;
   dog = new Dog();
   dogs: Dog[] = [];
   isLoading = true;
   isEditing = false;
 
-  addCatForm: FormGroup;
+  addDogForm: FormGroup;
   name = new FormControl('', Validators.required);
   age = new FormControl('', Validators.required);
   weight = new FormControl('', Validators.required);
 
-  constructor(private catService: DogService,
+  constructor(private dogService: DogService,
               private formBuilder: FormBuilder,
               public toast: ToastComponent) { }
 
   ngOnInit() {
     this.getDogs();
-    this.addCatForm = this.formBuilder.group({
+    this.addDogForm = this.formBuilder.group({
       name: this.name,
       age: this.age,
       weight: this.weight,
@@ -37,7 +36,7 @@ export class DogsComponent implements OnInit {
   }
 
   getDogs() {
-    this.catService.getDogs().subscribe(
+    this.dogService.getDogs().subscribe(
       data => this.dogs = data,
       error => console.log(error),
       () => this.isLoading = false,
@@ -45,10 +44,10 @@ export class DogsComponent implements OnInit {
   }
 
   addDog() {
-    this.catService.addDog(this.addCatForm.value).subscribe(
+    this.dogService.addDog(this.addDogForm.value).subscribe(
       (res) => {
         this.dogs.push(res);
-        this.addCatForm.reset();
+        this.addDogForm.reset();
         this.toast.setMessage('item added successfully.', 'success');
       },
       error => console.log(error),
@@ -81,7 +80,7 @@ export class DogsComponent implements OnInit {
 
   deleteDog(dog: Dog) {
     if (window.confirm('Are you sure you want to permanently delete this item?')) {
-      this.catService.deleteCat(dog).subscribe(
+      this.dogService.deleteDog(dog).subscribe(
         () => {
           const pos = this.dogs.map(elem => elem._id).indexOf(dog._id);
           this.dogs.splice(pos, 1);
