@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 
 import { AuthGuardLogin } from './services/auth-guard-login.service';
 import { AuthGuardAdmin } from './services/auth-guard-admin.service';
+import { DogsComponent } from './dogs/dogs.component';
 
 const routes: Routes = [
   { path: '', component: AboutComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuardAdmin] },
   { path: 'notfound', component: NotFoundComponent },
   { path: '**', redirectTo: '/notfound' },
+  { path: 'dogs', component: DogsComponent },
+
 ];
 
 @NgModule({
@@ -30,4 +33,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 
-export class RoutingModule {}
+export class RoutingModule { }

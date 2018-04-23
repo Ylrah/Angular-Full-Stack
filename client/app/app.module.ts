@@ -17,6 +17,8 @@ import { LogoutComponent } from './logout/logout.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { DogsComponent } from './dogs/dogs.component';
+import { DogService } from './services/dog.service';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -33,6 +35,7 @@ export function tokenGetter() {
     AccountComponent,
     AdminComponent,
     NotFoundComponent,
+    DogsComponent,
   ],
   imports: [
     RoutingModule,
